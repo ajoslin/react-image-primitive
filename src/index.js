@@ -36,6 +36,7 @@ module.exports = exports.default = class ImagePrimitive extends React.Component 
   }
 
   componentWillUpdate (nextProps) {
+    if (nextProps.src === this.props.src && nextProps.canLoad === this.props.canLoad) return
     this.onUpdate(nextProps)
   }
 
