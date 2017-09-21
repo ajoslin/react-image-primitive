@@ -57,12 +57,14 @@ module.exports = exports.default = class ImagePrimitive extends React.Component 
       this.update({ loaded: false, pending: true })
 
       loadImage(src, (error) => {
-        // If the image is finished loading but props.src changed, do nothing
-        if (this.props.src !== src) return
         if (!error) {
           imageCache[src] = true
         }
-        this.update({ loaded: true, pending: false, error })
+
+        // Only set loaded if this is the most current props.src
+        if (this.props.src === src) {
+          this.update({ loaded: true, pending: false, error })
+        }
       })
     }
   }
