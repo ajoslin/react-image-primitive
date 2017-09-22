@@ -1,6 +1,6 @@
 # react-image-primitive [![Build Status](https://travis-ci.org/ajoslin/react-image-primitive.svg?branch=master)](https://travis-ci.org/ajoslin/react-image-primitive)
 
-> Declaratively fetch image. Use render prop to get error/pending/loaded. Stop loading with prop.
+> Declaratively fetch image. Use a render prop to get error/pending/loaded state for the image. Set whether the image can be fetched with prop.
 
 ```jsx
 import ImagePrimitive from 'react-image-primitive'
