@@ -1,7 +1,7 @@
 {
   "name": "react-image-primitive",
   "main": "dist/index.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Declaratively fetch image. Use a render prop to get error/pending/loaded state for the image. Set whether the image can be fetched with prop.",
   "scripts": {
     "test": "standard --fix 'src/**/*.js' && jest",
