@@ -14,7 +14,7 @@ module.exports = exports.default = class ImagePrimitive extends React.Component 
   }
 
   static defaultProps = {
-    canLoad: false,
+    canLoad: true,
     onChange: () => {}
   }
 
