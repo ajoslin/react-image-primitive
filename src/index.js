@@ -27,7 +27,11 @@ module.exports = exports.default = class ImagePrimitive extends React.Component 
   getRenderProps () {
     return {
       src: this.props.src,
-      ...this.state
+      ...this.state,
+      ...imageCache[this.props.src] && {
+        width: imageCache[this.props.src].width,
+        height: imageCache[this.props.src].height
+      }
     }
   }
 
@@ -47,7 +51,7 @@ module.exports = exports.default = class ImagePrimitive extends React.Component 
   }
 
   onUpdate ({ src, canLoad }) {
-    const alreadyLoaded = src && (imageCache[src] !== undefined || /^data:/.test(src))
+    const alreadyLoaded = src && imageCache[src] !== undefined
 
     if (alreadyLoaded) {
       this.update({ loaded: true, pending: false })
@@ -56,9 +60,9 @@ module.exports = exports.default = class ImagePrimitive extends React.Component 
     } else {
       this.update({ loaded: false, pending: true })
 
-      loadImage(src, (error) => {
+      const img = loadImage(src, (error) => {
         if (!error) {
-          imageCache[src] = true
+          imageCache[src] = img
         }
 
         // Only set loaded if this is the most current props.src

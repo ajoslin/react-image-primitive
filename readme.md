@@ -11,7 +11,9 @@ ReactDOM.render(
       src,
       pending,
       error,
-      loaded
+      loaded,
+      width,
+      height
     }) => !loaded ? <div className='spinner' /> : <img src={src} />}
   />,
   document.body
@@ -44,7 +46,9 @@ Called whenever the loaded state of the image at `src` changes, with the same pr
 
 > `function` | *required*
 
-This function is called with `({ src, loaded, pending, error })` whenever any of those values updates.
+This function is called with `({ src, loaded, pending, error, width, height })` whenever any of those values updates.
+
+Width and height are retrieved from the `<img>` element used to load the image internally.
 
 Use this to render your elements in reaction to the image loading state (see example at the top).
 
