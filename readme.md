@@ -52,6 +52,8 @@ Width and height are retrieved from the `<img>` element used to load the image i
 
 Use this to render your elements in reaction to the image loading state (see example at the top).
 
+Also can render with `children` prop as function.
+
 ## License
 
 MIT © [Andrew Joslin](http://ajoslin.com)

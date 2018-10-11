@@ -74,6 +74,6 @@ module.exports = exports.default = class ImagePrimitive extends React.Component 
   }
 
   render () {
-    return this.props.render(this.getRenderProps())
+    return (this.props.render || this.props.children)(this.getRenderProps())
   }
 }
